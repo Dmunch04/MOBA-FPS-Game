@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		Vector3 rotation = new Vector3 (gameObject.transform.eulerAngles.x, camera.transform.eulerAngles.y, gameObject.transform.eulerAngles.z);
-		gameObject.transform.eulerAngles = rotation;
+		float yRotation = camera.transform.eulerAngles.y;
+		transform.eulerAngles = new Vector3 (transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
 
 		if (Input.GetKey ("w")) {
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
