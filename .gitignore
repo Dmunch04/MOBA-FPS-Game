@@ -32,3 +32,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+\ No newline at end of file
+*.unitypackage
+FPS-MOBA Game/.vscode/
+\ No newline at end of file
