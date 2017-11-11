@@ -7,11 +7,22 @@ public class PlayerController : NetworkBehaviour {
 
 	public Rigidbody bullet;
 	public Transform barrelEnd;
-	public GameObject camera;
 	public float speed = 4.0f;
+	public Camera camera;
+
+	void Awake()
+	{
+		camera.enabled = false;
+	}
+
 	// Use this for initialization
 	void Start () {
-		
+
+		if (isLocalPlayer)
+		{
+			GameObject.Find("Main Camera").gameObject.transform.parent = this.transform;
+		}
+
 	}
 
 	// Update is called once per frame
@@ -22,7 +33,7 @@ public class PlayerController : NetworkBehaviour {
 		}
 
 		float yRotation = camera.transform.eulerAngles.y;
-		transform.eulerAngles = new Vector3 (transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+		transform.eulerAngles = new Vector3( transform.eulerAngles.x, yRotation, transform.eulerAngles.z );
 
 		if (Input.GetKey ("w")) {
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
@@ -45,6 +56,7 @@ public class PlayerController : NetworkBehaviour {
 	}
 
 	public override void OnStartLocalPlayer() {
+		camera.enabled = true;
 		GetComponent<MeshRenderer>().material.color = Color.blue;
 	}
 }

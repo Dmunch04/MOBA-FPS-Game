@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : NetworkBehaviour {
 
 	public int visible = 0;
 	public float sensitivity = 100.0f;
 	public float clampAngle = 80.0f;
 	private float rotationX = 0.0f;
 	private float rotationY = 0.0f;
+	public NetworkIdentity player;
 
 	// Use this for initialization
 	void Start ()
@@ -23,6 +25,10 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if (player.isLocalPlayer == false) {
+			return;
+		}
+
 		float mouseX = Input.GetAxis ("Mouse X");
 		float mouseY = -Input.GetAxis ("Mouse Y");
 
