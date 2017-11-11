@@ -37,3 +37,4 @@ sysinfo.txt
 FPS-MOBA Game/.vscode/
 \ No newline at end of file
 FPS-MOBA Game/Temp/UnityLockfile
+*.lock
