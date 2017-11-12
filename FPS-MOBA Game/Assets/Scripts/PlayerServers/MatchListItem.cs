@@ -20,4 +20,9 @@ public class MatchListItem : MonoBehaviour {
         matchNameText.text = match.name + " (" + match.currentSize + "/" + match.maxSize + ")";
     }
 
+    public void JoinGame ()
+    {
+        joinMatchCallback.Invoke(match);
+    }
+
 }
