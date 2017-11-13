@@ -18,10 +18,7 @@ public class PlayerController : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		if (isLocalPlayer)
-		{
-			GameObject.Find("Main Camera").gameObject.transform.parent = this.transform;
-		}
+
 
 	}
 
