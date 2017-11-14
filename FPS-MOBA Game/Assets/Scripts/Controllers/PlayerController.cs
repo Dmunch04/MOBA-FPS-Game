@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
-	public Rigidbody bullet;
+	public GameObject bullet;
 	public Transform barrelEnd;
 	public float speed = 4.0f;
 	public Camera camera;
@@ -46,9 +46,7 @@ public class PlayerController : NetworkBehaviour {
 		}
 
 		if (Input.GetButtonDown("Fire1")) {
-			Rigidbody clone;
-			clone = Instantiate(bullet, barrelEnd.position, barrelEnd.rotation) as Rigidbody;
-			clone.AddForce(barrelEnd.forward * 5000);
+			CmdFire();
 		}
 	}
 
@@ -56,4 +54,16 @@ public class PlayerController : NetworkBehaviour {
 		camera.enabled = true;
 		GetComponent<MeshRenderer>().material.color = Color.blue;
 	}
+
+	[Command]
+	void CmdFire () {
+		var clone = (GameObject)Instantiate(bullet,	barrelEnd.position,	barrelEnd.rotation);
+
+		clone.GetComponent<Rigidbody>().velocity = clone.transform.forward * 6;
+
+		NetworkServer.Spawn(clone);
+
+		Destroy (clone, 2.0f);
+	}
+
 }
