@@ -59,7 +59,7 @@ public class PlayerController : NetworkBehaviour {
 	void CmdFire () {
 		var clone = (GameObject)Instantiate(bullet,	barrelEnd.position,	barrelEnd.rotation);
 
-		clone.GetComponent<Rigidbody>().velocity = clone.transform.forward * 6;
+		clone.GetComponent<Rigidbody>().velocity = clone.transform.forward * 30;
 
 		NetworkServer.Spawn(clone);
 
