@@ -1786,6 +1786,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114251816811141274, guid: c48aacca00344f1438d436bad4242b8a,
+        type: 2}
+      propertyPath: m_PlayerSpawnMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114251816811141274, guid: c48aacca00344f1438d436bad4242b8a,
+        type: 2}
+      propertyPath: m_OfflineScene
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c48aacca00344f1438d436bad4242b8a, type: 2}
   m_IsPrefabParent: 0

@@ -1,6 +1,12 @@
 WindowsStandalone
 SceneListBegin?
+Assets/Scenes/LoginMenu.unity
+Assets/Scenes/Menu.unity
 Assets/Scenes/TestLevel.unity
+Assets/Scenes/Store.unity
+Assets/Scenes/Settings.unity
+Assets/Scenes/PlayerServers.unity
+Assets/Scenes/Profile.unity
 SceneListEnd?
 75cd0c6c744b9733ef29aa6c59ece2b1 Assembly-CSharp.dll:TMPro.Examples.VertexZoom
 c906602d9b43cc5e075f80e1d8ae7c79 Assembly-CSharp.dll:TMPro.Examples.Benchmark01_UGUI

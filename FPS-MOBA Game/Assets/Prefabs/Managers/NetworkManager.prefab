@@ -68,7 +68,9 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Menu
   m_OnlineScene: TestLevel
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 1173477423786286, guid: baa3533893cb54b4ab100fccb3792bb6, type: 2}
+  - {fileID: 1116785181027124, guid: 0dd4f66bc94e4934e88e952b21020e43, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
