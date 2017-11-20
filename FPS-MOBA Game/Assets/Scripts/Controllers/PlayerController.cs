@@ -1,69 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine;
 
-public class PlayerController : NetworkBehaviour {
+[RequireComponent(typeof(PlayerMotor))]
+public class PlayerController : MonoBehaviour {
 
-	public GameObject bullet;
-	public Transform barrelEnd;
-	public float speed = 4.0f;
-	public Camera camera;
+    //Movement speed
+    [SerializeField]
+    private float speed = 5f;
 
-	void Awake()
-	{
-		camera.enabled = false;
-	}
+    //Mouse sensitivity
+    [SerializeField]
+    private float lookSensitivity = 3f;
 
-	// Use this for initialization
-	void Start () {
+    private PlayerMotor motor;
+
+    void Start()
+    {
+        motor = GetComponent<PlayerMotor>();
+    }
+
+    void Update()
+    {
+        //Movement
+        float xMov = Input.GetAxisRaw("Horizontal");
+        float zMov = Input.GetAxisRaw("Vertical");
+
+        Vector3 movHorizontal = transform.right * xMov;
+        Vector3 movVertical = transform.forward * zMov;
+
+        Vector3 velocity = (movHorizontal + movVertical).normalized * speed;
+
+        //Applying the movement, to the PlayerMotor script
+        motor.Move(velocity);
 
 
+        //Rotation
+        float yRot = Input.GetAxisRaw("Mouse X");
 
-	}
+        Vector3 rotation = new Vector3(0f, yRot, 0f) * lookSensitivity;
 
-	// Update is called once per frame
-	void Update () {
+        //Applying the rotation, to the PlayerMotor script
+        motor.Rotate(rotation);
 
-		if (!isLocalPlayer) {
-			return;
-		}
+        //Camera rotation
+        float xRot = Input.GetAxisRaw("Mouse Y");
 
-		float yRotation = camera.transform.eulerAngles.y;
-		transform.eulerAngles = new Vector3( transform.eulerAngles.x, yRotation, transform.eulerAngles.z );
+        Vector3 cameraRotation = new Vector3(xRot, 0f, 0f) * lookSensitivity;
 
-		if (Input.GetKey ("w")) {
-			transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		}
-		if (Input.GetKey ("s")) {
-			transform.Translate (-Vector3.forward * speed * Time.deltaTime);
-		}
-		if (Input.GetKey ("a")) {
-			transform.Translate (Vector3.left * speed * Time.deltaTime);
-		}
-		if (Input.GetKey ("d")) {
-			transform.Translate (Vector3.right * speed * Time.deltaTime);
-		}
-
-		if (Input.GetButtonDown("Fire1")) {
-			CmdFire();
-		}
-	}
-
-	public override void OnStartLocalPlayer() {
-		camera.enabled = true;
-		GetComponent<MeshRenderer>().material.color = Color.blue;
-	}
-
-	[Command]
-	void CmdFire () {
-        var clone = (GameObject)Instantiate(bullet,	barrelEnd.position,	barrelEnd.rotation);
-
-		clone.GetComponent<Rigidbody>().velocity = clone.transform.forward * 30;
-
-		NetworkServer.Spawn(clone);
-
-		Destroy (clone, 2.0f);
+        //Applying the camera rotation, to the PlayerMotor script
+        motor.CameraRotate(cameraRotation);
     }
 
 }
