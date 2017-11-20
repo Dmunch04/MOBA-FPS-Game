@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -102,6 +102,13 @@ public class JoinGame : MonoBehaviour {
         }
 
         matchList.Clear();
+
+		//removes existing match items
+		foreach(Transform child in matchListParent) {
+			Destroy(child.gameObject);
+		}
+
+
     }
 
     public void JoinMatch(MatchInfoSnapshot _match)
