@@ -180,6 +180,7 @@ dad1c1272dfe1898bb613dcb2631bcce Assembly-CSharp.dll:TMPro.Examples.Benchmark02
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.TMP_DigitValidator
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.Examples.TeleType
 8a50d3d11bf0cc541f5c35347dd25633 Assembly-CSharp.dll:TMPro.Examples.ShaderPropAnimator
+521b2d9ec7b9e06b1cea7ba44f80d57a Assembly-CSharp.dll:.PlayerController
 8dcabeb7c6602fe854af32bb8a264119 Assembly-CSharp.dll:.JoinGame
 76015de5fcb247eeb8df66c001d5a22d Assembly-CSharp.dll:TMPro.Examples.TMP_FrameRateCounter
 b8f04bdad423045528c67dfa4c3dca0d Assembly-CSharp.dll:TMPro.Examples.VertexShakeA
@@ -197,6 +198,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+2124af75d6b3afb90d3c8471b98e9f78 Assembly-CSharp.dll:.PlayerMotor
 62229a3e4d53ca59bec192e89627ed52 Assembly-CSharp.dll:TMPro.Examples.CameraController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -224,6 +226,6 @@ afc52d27c3ec0bd47909e81bd45fbffa Assembly-CSharp.dll:TMPro.TMP_TextEventHandler
 020550babdb991365f61c5bffe1f4f52 Assembly-CSharp.dll:TMPro.Examples.TextMeshSpawner
 9d45127ead32caf7e7e5b0b71affb9dd Assembly-CSharp.dll:.UIManager
 af7666733efcc974926d7d470e1732a6 Assembly-CSharp.dll:TMPro.Examples.SkewTextExample
-07404dd59b84407774e0654ee90692e3 Assembly-CSharp.dll:.PlayerController
 34e025057ef78b1bf238460cdf6583a3 Assembly-CSharp.dll:TMPro.Examples.ObjectSpin
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:TMPro.Examples.SimpleScript
+7a85ac6da0f41c725300888bfe035ca5 Assembly-CSharp.dll:.PlayerSetup
