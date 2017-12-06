@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour {
@@ -59,4 +59,8 @@ public class PlayerMotor : MonoBehaviour {
         }
     }
 
+	public void Jump (float Power)
+	{
+		rb.AddForce(new Vector3(0, Power, 0));
+	}
 }

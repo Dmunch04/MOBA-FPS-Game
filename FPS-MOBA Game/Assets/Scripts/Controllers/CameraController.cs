@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -12,7 +12,6 @@ public class CameraController : NetworkBehaviour {
 	private float rotationY = 0.0f;
 	public NetworkIdentity player;
 
-	// Use this for initialization
 	void Start ()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
@@ -22,7 +21,6 @@ public class CameraController : NetworkBehaviour {
 		rotationY = rot.y;
 	}
 
-	// Update is called once per frame
 	void Update ()
 	{
 		if (player.isLocalPlayer == false) {

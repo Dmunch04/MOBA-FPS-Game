@@ -1,22 +1,31 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour {
 
-    //Movement speed
-    [SerializeField]
-    private float speed = 5f;
+	//Movement speed
+	[SerializeField]
+	private float speed = 10f;
 
-    //Mouse sensitivity
-    [SerializeField]
-    private float lookSensitivity = 3f;
+	//Mouse sensitivity
+	[SerializeField]
+	private float lookSensitivity = 2f;
+
+	//The power of the jump
+	[SerializeField]
+	private float jumpPower;
+
+	//The distance the ground is within for the player to be classed as grounded
+	private float GroundDistance = 5;
 
     private PlayerMotor motor;
 
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
-    }
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
 
     void Update()
     {
@@ -31,7 +40,6 @@ public class PlayerController : MonoBehaviour {
 
         //Applying the movement, to the PlayerMotor script
         motor.Move(velocity);
-
 
         //Rotation
         float yRot = Input.GetAxisRaw("Mouse X");
@@ -48,6 +56,12 @@ public class PlayerController : MonoBehaviour {
 
         //Applying the camera rotation, to the PlayerMotor script
         motor.CameraRotate(cameraRotation);
+
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			if (Physics.Raycast(transform.position, Vector3.down, 5)) {
+				motor.Jump(jumpPower);
+			}
+		}
     }
 
 }
