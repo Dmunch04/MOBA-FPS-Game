@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerShoot : NetworkBehaviour {
@@ -13,8 +13,14 @@ public class PlayerShoot : NetworkBehaviour {
     [SerializeField]
     private LayerMask mask;
 
-    void Start()
+	[SerializeField]
+	private Transform bulletSpawn;
+
+	void Start()
     {
+		if(bulletSpawn == null) {
+			Debug.LogError("PlayerShoot: No place to spawn bullets");
+		}
         if (cam == null)
         {
             Debug.LogError("PlayerShoot: No camera!!");
@@ -34,15 +40,7 @@ public class PlayerShoot : NetworkBehaviour {
     [Client]
     void Shoot()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, weapon.range, mask))
-        {
-            // We hit something
-            if (hit.collider.tag == PLAYER_TAG)
-            {
-                CmdPlayerShot(hit.collider.name);
-            }
-        }
+		Instantiate(weapon.Bullet, bulletSpawn.position,bulletSpawn.rotation);
     }
 
     [Command]

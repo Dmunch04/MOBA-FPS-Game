@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 	private float jumpPower;
 
 	//The distance the ground is within for the player to be classed as grounded
-	private float GroundDistance = 5;
+	private float GroundDistance = 1.1f;
 
     private PlayerMotor motor;
 
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
         motor.CameraRotate(cameraRotation);
 
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			if (Physics.Raycast(transform.position, Vector3.down, 5)) {
+			if (Physics.Raycast(transform.position, Vector3.down, GroundDistance)) {
 				motor.Jump(jumpPower);
 			}
 		}
