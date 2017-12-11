@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Collections.Generic;
 
 public class PlayerShoot : NetworkBehaviour {
 
@@ -36,11 +37,26 @@ public class PlayerShoot : NetworkBehaviour {
             Shoot();
         }
     }
-
+    
     [Client]
     void Shoot()
     {
-		Instantiate(weapon.Bullet, bulletSpawn.position,bulletSpawn.rotation);
+        Ray r = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+
+        r.origin = bulletSpawn.position;
+
+        RaycastHit rhit;
+
+        Debug.DrawRay(r.origin, r.direction * 100, Color.red, 1f);
+
+        if (Physics.Raycast(r.origin, r.direction, out rhit, Mathf.Infinity, mask))
+        {
+            if (rhit.collider.tag == PLAYER_TAG)
+            {
+                CmdPlayerShot(rhit.collider.name);
+            }
+        }
+            
     }
 
     [Command]
