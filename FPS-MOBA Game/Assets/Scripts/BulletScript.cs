@@ -14,7 +14,7 @@ public class BulletScript : MonoBehaviour {
 
 	private void OnCollisionEnter (Collision collision)
 	{
-		print("Dmage, if it had been added.");
+		print("Damage, if it had been added.");
 		Destroy(gameObject);
 	}
 }
